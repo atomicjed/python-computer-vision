@@ -18,8 +18,32 @@
 }
 
 @layer base {
+  :root {
+    --primary: #286bdc;
+    
+    --secondary: #31a896;
+  }
+  
   body {
     @apply font-sans bg-n-8 text-n-1 text-base;
+  }
+
+  li {
+    margin: 20px 20px 0 20px;
+  }
+  
+  li:first-child {
+    margin-top: 0;
+  }
+  
+  li:last-child {
+    margin-bottom: 0;
+  }
+  
+  li::before {
+    content: "- ";
+    position: absolute;
+    margin-left: -20px;
   }
 }
 

@@ -20,10 +20,14 @@ import chromecast from "./chrome-cast.svg";
 import sliders04 from "./sliders-04.svg";
 import loading from "./loading.png";
 import background from "./background.jpg";
+import imagesBackground from "./images-background.png";
+import respectGif from "./respect-jose.gif";
+import module2Thumb from "./module2-thumbnail.png";
+import pythonIcon from "./python-icon.webp";
 
 import curve from "./hero/curve.png";
 import robot from "./hero/robot.jpg";
-import heroBackground from "./hero/hero-background.jpg";
+import heroBackground from "./hero/hero-background.png";
 
 import curve1 from "./collaboration/curve-1.svg";
 import curve2 from "./collaboration/curve-2.svg";
@@ -74,6 +78,17 @@ import facebook from "./socials/facebook.svg";
 import instagram from "./socials/instagram.svg";
 import telegram from "./socials/telegram.svg";
 import twitter from "./socials/twitter.svg";
+
+import stackOverflowCv2Error from "./examples/stackoverlow-cv2-error.png";
+import cv2Error from "./examples/cv2-error.png";
+import tracebackError from "./examples/traceback-error.webp";
+import carDetection from "./examples/car-detection.png";
+import module2One from "./examples/module2-1.png";
+import module2Two from "./examples/module2-2.png";
+import module2Three from "./examples/module2-3.png";
+import module2Four from "./examples/module2-4.png";
+import frameDelta from "./examples/frame-delta.png";
+import threshold from "./examples/threshold.png";
 
 export {
   brainwave,
@@ -144,4 +159,18 @@ export {
   instagram,
   telegram,
   twitter,
+  stackOverflowCv2Error,
+  cv2Error,
+  tracebackError,
+  imagesBackground,
+  carDetection,
+  module2One,
+  respectGif,
+  module2Two,
+  module2Three,
+  module2Four,
+  frameDelta,
+  threshold,
+  module2Thumb,
+  pythonIcon,
 };

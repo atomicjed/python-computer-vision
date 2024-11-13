@@ -7,13 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
         color: {
-          1: "#AC6AFF",
-          2: "#FFC876",
-          3: "#FF776F",
-          4: "#7ADB78",
-          5: "#858DFF",
-          6: "#FF98E2",
+          1: "#3159a9",
+          2: "#33a699",
+          3: "#183e9f",
+          4: "#fdfef7",
+          5: "#1e1a3e",
+          6: "#2eaab1",
         },
         stroke: {
           1: "#26242C",
@@ -69,7 +71,7 @@ export default {
       backgroundImage: {
         "radial-gradient": "radial-gradient(var(--tw-gradient-stops))",
         "conic-gradient":
-          "conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)",
+          "conic-gradient(from 225deg, #2eaab1, #183e9f, #33a699, #3159a9, #1e1a3e)",
       },
     },
   },
