@@ -13,14 +13,15 @@ export default function ModuleOne() {
   return (
     <>
       <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-        <Header navigation={module1NavItems} />
-        <Hero title={"Python Basics"} subHeading={"\"Fear not the man who has practiced 10,000 kicks once, fear the man who has practiced one kick 10,000 times.\""} />
-        <InfoSection sectionId={'introduction'} content={whatIsPythonContent} isFirst />
-        <InfoSection sectionId={'data-types'} content={dataTypesContent} />
-        <InfoSection sectionId={"conditionals"} content={conditionalStatementsContent} />
-        <InfoSection sectionId={'loops'} content={loopsContent} />
-        <InfoSection sectionId={'functions'} content={functionsContent} />
-        <SubmitWork />
+        <Header navigation={module1NavItems}/>
+        <Hero title={"Python Basics"}
+              subHeading={"\"Fear not the man who has practiced 10,000 kicks once, fear the man who has practiced one kick 10,000 times.\""}/>
+        <InfoSection sectionId={'introduction'} content={whatIsPythonContent} isFirst/>
+        <InfoSection sectionId={'data-types'} content={dataTypesContent}/>
+        <InfoSection sectionId={"conditionals"} content={conditionalStatementsContent}/>
+        <InfoSection sectionId={'loops'} content={loopsContent}/>
+        <InfoSection sectionId={'functions'} content={functionsContent}/>
+        <SubmitWork/>
       </div>
 
       <ButtonGradient/>

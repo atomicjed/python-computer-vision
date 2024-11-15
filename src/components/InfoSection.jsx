@@ -3,7 +3,7 @@ import Text from "./Text.jsx";
 import React, {useEffect} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import {displayImages, displayList, displayTitle} from "../lib/utils/displayInfo.utils.jsx";
+import {displayImages, displayList, displayTitle, displayYoutubeVideo} from "../lib/utils/displayInfo.utils.jsx";
 import {useModules} from "../lib/context/modules.context.jsx";
 
 export function InfoSection({ sectionId, content, isFirst = false }) {
@@ -32,11 +32,16 @@ export function InfoSection({ sectionId, content, isFirst = false }) {
     if (contentItem.quote) {
       return <p className={`italic ${isDarkMode ? 'text-amber-100' : 'text-[#3159a9]'} px-6 sm:px-12`}>{contentItem.quote}</p>
     }
-    
+    if (contentItem.ytVideoUrl) {
+      return displayYoutubeVideo(contentItem.ytVideoUrl);
+    }
+    if (contentItem.link) {
+      return <a className={`${isDarkMode ? 'text-secondary hover:text-primary' : 'text-primary hover:text-secondary'} transition duration-300 ease-in-out underline cursor-pointer`} href={contentItem.link}>{contentItem.link}</a>
+    }
+
     console.error("There was an error in the content json");
   }
-  
-  
+
 
   return (
     <Section

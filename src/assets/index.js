@@ -91,6 +91,11 @@ import module2Four from "./examples/module2-4.png";
 import frameDelta from "./examples/frame-delta.png";
 import threshold from "./examples/threshold.png";
 
+import openFolder from "./examples/module1/VsCode.png";
+import mainPy from "./examples/module1/mainPy.png";
+import helloWorldConsole from "./examples/module1/console.png";
+import newTerminal from "./examples/module1/newTerminal.png";
+
 import moduleTwoVideo from "./videos/ModuleTwo.mp4";
 
 export {
@@ -178,4 +183,8 @@ export {
   pythonIcon,
   heroBgWhite,
   moduleTwoVideo,
+  openFolder,
+  helloWorldConsole,
+  mainPy,
+  newTerminal,
 };

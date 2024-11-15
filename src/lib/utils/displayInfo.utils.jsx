@@ -22,8 +22,20 @@ export function displayList(list, isDarkMode) {
         <React.Fragment key={index}>
           {listItem.bulletPoint && <li className={`${isDarkMode ? '' : 'text-black'}`} data-aos="fade">{listItem.bulletPoint}</li>}
           {listItem.images && displayImages(listItem.images)}
+          {listItem.link && <li><a className={`${isDarkMode ? 'text-secondary hover:text-primary' : 'text-primary hover:text-secondary'} transition duration-300 ease-in-out underline cursor-pointer`} href={listItem.link}>{listItem.link}</a></li>}
         </React.Fragment>
       ))}
     </ul>
   );
+}
+
+export function displayYoutubeVideo(url) {
+  return (
+    <div className={'lg:max-w-[80%] flex justify-center aspect-video'}>
+      <iframe width="100%" height="100%" src={url}
+              title="YouTube video player" frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+    </div>
+  )
 }
