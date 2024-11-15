@@ -82,7 +82,7 @@ const Header = ({ navigation }) => {
         <div className={'flex gap-4 items-center absolute right-5 lg:right-7.5 xl:right-10'}>
           <div onClick={() => setIsDarkMode(!isDarkMode)}
                className={`h-10 cursor-pointer w-10 bg-secondary flex items-center justify-center border-2 border-solid border-secondary rounded-2xl`}>
-            <FontAwesomeIcon className={''} icon={isDarkMode ? faMoon : faLightbulb}/>
+            <FontAwesomeIcon className={''} icon={!isDarkMode ? faMoon : faLightbulb}/>
           </div>
 
           <Button isDarkMode={isDarkMode} className="hidden lg:flex" onClick={toggleNavigation}>
