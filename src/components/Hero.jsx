@@ -1,26 +1,24 @@
-import {carDetection, heroBackground, module2Four, module2Thumb, robot} from "../assets";
+import {heroBackground, heroBgWhite } from "../assets";
 import Button from "./Button";
 import Section from "./Section";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
-import { heroIcons } from "../constants";
-import { ScrollParallax } from "react-just-parallax";
 import { useRef } from "react";
-import Notification from "./Notification";
-import CompanyLogos from "./CompanyLogos";
 import videojs from "video.js";
 import VideoPlayer from "./VideoPlayer.jsx";
+import {useModules} from "../lib/context/modules.context.jsx";
 
-const Hero = () => {
+const Hero = ({ title, subHeading, video, videoThumbnail }) => {
   const playerRef = useRef(null);
+  const { isDarkMode } = useModules();
 
   const videoJsOptions = {
     autoplay: true,
     controls: true,
     responsive: true,
     fluid: true,
-    poster: module2Thumb,
+    poster: videoThumbnail,
     sources: [{
-      src: 'src/assets/videos/ModuleTwo.mp4',
+      src: video,
       type: 'video/mp4'
     }]
   };
@@ -48,13 +46,13 @@ const Hero = () => {
       customPaddings
       id="hero"
     >
-      <div className="container relative pb-10 lg:pb-0" ref={parallaxRef}>
+      <div className="container relative pb-10 bg-white lg:pb-10" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
-          <h1 className="h1 mb-6">
-            Building a Security Camera using Computer Vision
+          <h1 className={`${isDarkMode ? '' : 'text-black'} h1 mb-6`}>
+            {title}
           </h1>
-          <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
-            Discover how motion detection with python can be applied to real world scenarios
+          <p className={`body-1 max-w-3xl mx-auto mb-6 ${isDarkMode ? 'text-n-2' : 'text-n-6'} lg:mb-8`}>
+            {subHeading}
           </p>
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
@@ -63,10 +61,10 @@ const Hero = () => {
               <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
             </div>
           </div>
-          <div className="absolute -top-[200%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
+          <div className={`absolute flex justify-center items-center ${isDarkMode ? '-top-[200%]' : '-top-[120%]'} left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]`}>
             <img
-              src={heroBackground}
-              className="w-full"
+              src={isDarkMode ? heroBackground : heroBgWhite}
+              className={`${isDarkMode ? 'w-full' : 'w-[70%] lg:w-full'}`}
               width={1440}
               height={1800}
               alt="hero"

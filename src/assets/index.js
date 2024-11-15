@@ -28,6 +28,7 @@ import pythonIcon from "./python-icon.webp";
 import curve from "./hero/curve.png";
 import robot from "./hero/robot.jpg";
 import heroBackground from "./hero/hero-background.png";
+import heroBgWhite from "./hero/hero-bg-white.png";
 
 import curve1 from "./collaboration/curve-1.svg";
 import curve2 from "./collaboration/curve-2.svg";
@@ -89,6 +90,8 @@ import module2Three from "./examples/module2-3.png";
 import module2Four from "./examples/module2-4.png";
 import frameDelta from "./examples/frame-delta.png";
 import threshold from "./examples/threshold.png";
+
+import moduleTwoVideo from "./videos/ModuleTwo.mp4";
 
 export {
   brainwave,
@@ -173,4 +176,6 @@ export {
   threshold,
   module2Thumb,
   pythonIcon,
+  heroBgWhite,
+  moduleTwoVideo,
 };

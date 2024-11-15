@@ -132,4 +132,10 @@ export const walkThrough = [
       {bulletPoint: "Finally, if the program is stopped from the command line, the while loop is broken on line 87, the video streams are stopped and the windows are closed."}
     ]
   }
+];
+
+export const results = [
+  {
+    title: "Results",
+  }
 ]
