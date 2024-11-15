@@ -2,7 +2,6 @@ import { useLocation } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 import {brainwave, pythonIcon} from "../assets";
-import { navigation } from "../constants";
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
@@ -10,7 +9,7 @@ import { useState } from "react";
 import {availableModules} from "../lib/utils/modules.utils.js";
 import {useModules} from "../lib/context/modules.context.jsx";
 
-const Header = () => {
+const Header = ({ navigation }) => {
   const pathname = useLocation();
   const [openNavigation, setOpenNavigation] = useState(false);
   const { isDarkMode, handleModuleSelected } = useModules();

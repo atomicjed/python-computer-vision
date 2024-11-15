@@ -1,4 +1,5 @@
-const ButtonGradient = () => {
+const ButtonGradient = ({ isDarkMode }) => {
+  const darkColour = isDarkMode ? '#1e1a3e' : '#286bdc';
   return (
     <svg className="block" width={0} height={0}>
       {/*<defs>*/}
@@ -27,7 +28,7 @@ const ButtonGradient = () => {
       {/*</defs>*/}
       <defs>
         <linearGradient id="btn-left" x1="50%" x2="50%" y1="0%" y2="100%">
-          <stop offset="0%" stopColor="#1e1a3e"/>
+          <stop offset="0%" stopColor={darkColour}/>
           {/* Dark Purple */}
           <stop offset="100%" stopColor="#2eaab1"/>
           {/* Teal */}
@@ -39,10 +40,10 @@ const ButtonGradient = () => {
           {/* Soft Greenish-Blue */}
         </linearGradient>
         <linearGradient id="btn-bottom" x1="100%" x2="0%" y1="50%" y2="50%">
-          <stop offset="0%" stopColor="#1e1a3e"/>
+          <stop offset="0%" stopColor={darkColour}/>
           {/* Intense Blue */}
           <stop offset={"50%"} stopColor={"#2eaab1"} />
-          <stop offset="100%" stopColor="#1e1a3e"/>
+          <stop offset="100%" stopColor={darkColour}/>
           {/* Teal */}
         </linearGradient>
         {/*<linearGradient*/}
@@ -64,7 +65,7 @@ const ButtonGradient = () => {
           y1="0%"
           y2="100%"
         >
-          <stop offset="0%" stopColor="#1e1a3e"/>
+          <stop offset="0%" stopColor={darkColour}/>
           {/* Dark Purple */}
           <stop offset="100%" stopColor="#33a699"/>
           {/* Soft Greenish-Blue */}

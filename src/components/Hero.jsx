@@ -61,7 +61,7 @@ const Hero = ({ title, subHeading, video, videoThumbnail }) => {
               <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
             </div>
           </div>
-          <div className={`absolute flex justify-center items-center ${isDarkMode ? '-top-[200%]' : '-top-[120%]'} left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]`}>
+          <div className={`absolute flex justify-center items-center ${isDarkMode ? '-top-[200%]' : '-top-[120%]'} left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] ${isDarkMode ? 'lg:-top-[104%]' : 'lg:-top-[97%]'}`}>
             <img
               src={isDarkMode ? heroBackground : heroBgWhite}
               className={`${isDarkMode ? 'w-full' : 'w-[70%] lg:w-full'}`}

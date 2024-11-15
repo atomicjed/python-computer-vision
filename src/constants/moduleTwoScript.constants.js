@@ -6,7 +6,30 @@ import {
   tracebackError,
   respectGif,
   module2Two, module2Three, frameDelta, threshold, module2Four
-} from "../../assets/index.js";
+} from "../assets/index.js";
+
+export const module2NavItems = [
+  {
+    id: "0",
+    title: "Fixing Bugs",
+    url: "#fixing-bugs",
+  },
+  {
+    id: "1",
+    title: "Libraries",
+    url: "#libraries",
+  },
+  {
+    id: "2",
+    title: "Computer Vision",
+    url: "#computer-vision",
+  },
+  {
+    id: "3",
+    title: "Walkthrough",
+    url: "#walkthrough",
+  },
+];
 
 export const fixingBugsContent = [
   {
@@ -60,7 +83,7 @@ export const computerVisionContent = [
     text: "Motion detection varies in complexity, but all methods share a common goal: separating the background from the foreground. Why is it important? In motion detection, we assume:"
   },
   {
-   quote: '“The background of our video stream is largely static and unchanging over consecutive frames of a video. Therefore, if we can model the background, we monitor it for substantial changes. If there is a substantial change, we can detect it — this change normally corresponds to motion on our video.”'
+    quote: '“The background of our video stream is largely static and unchanging over consecutive frames of a video. Therefore, if we can model the background, we monitor it for substantial changes. If there is a substantial change, we can detect it — this change normally corresponds to motion on our video.”'
   },
   {
     text: "In the real world, this can easily fail. Shadows, reflections, lighting conditions, and other changes to the environment can make our background look different in various frames, which can throw our algorithm off. This is why the most reliable motion detection systems have fixed cameras in controlled lighting conditions. "

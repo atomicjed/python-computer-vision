@@ -36,29 +36,6 @@ import {
   yourlogo,
 } from "../assets";
 
-export const navigation = [
-  {
-    id: "0",
-    title: "Fixing Bugs",
-    url: "#fixing-bugs",
-  },
-  {
-    id: "1",
-    title: "Libraries",
-    url: "#libraries",
-  },
-  {
-    id: "2",
-    title: "Computer Vision",
-    url: "#computer-vision",
-  },
-  {
-    id: "3",
-    title: "Walkthrough",
-    url: "#walkthrough",
-  },
-];
-
 export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
 
 export const notificationImages = [notification4, notification3, notification2];
