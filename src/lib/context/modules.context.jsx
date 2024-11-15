@@ -25,7 +25,7 @@ export default function ModulesProvider({ children }) {
   }
   
   return (
-    <ModulesContext.Provider value={{isDarkMode, handleModuleSelected}}>
+    <ModulesContext.Provider value={{isDarkMode, handleModuleSelected, setIsDarkMode}}>
       {children}
     </ModulesContext.Provider>
   )

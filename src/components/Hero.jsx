@@ -12,7 +12,7 @@ const Hero = ({ title, subHeading, video, videoThumbnail }) => {
   const { isDarkMode } = useModules();
 
   const videoJsOptions = {
-    autoplay: true,
+    autoplay: false,
     controls: true,
     responsive: true,
     fluid: true,
@@ -71,7 +71,7 @@ const Hero = ({ title, subHeading, video, videoThumbnail }) => {
             />
           </div>
 
-          <BackgroundCircles />
+          <BackgroundCircles isDarkMode={isDarkMode} />
         </div>
         
         {/*<CompanyLogos className="hidden relative z-10 mt-20 lg:block" />*/}

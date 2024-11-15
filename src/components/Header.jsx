@@ -8,11 +8,12 @@ import { HamburgerMenu } from "./design/Header";
 import { useState } from "react";
 import {availableModules} from "../lib/utils/modules.utils.js";
 import {useModules} from "../lib/context/modules.context.jsx";
-
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faLightbulb, faMoon} from "@fortawesome/free-solid-svg-icons";
 const Header = ({ navigation }) => {
   const pathname = useLocation();
   const [openNavigation, setOpenNavigation] = useState(false);
-  const { isDarkMode, handleModuleSelected } = useModules();
+  const { isDarkMode, handleModuleSelected, setIsDarkMode } = useModules();
 
   const toggleNavigation = () => {
     if (openNavigation) {
@@ -20,7 +21,6 @@ const Header = ({ navigation }) => {
       enablePageScroll();
     } else {
       setOpenNavigation(true);
-      disablePageScroll();
     }
   };
 
@@ -37,8 +37,8 @@ const Header = ({ navigation }) => {
         openNavigation ? `${isDarkMode ? 'bg-n-8' : 'bg-white'}` : `${isDarkMode ? 'bg-n-8/90' : 'bg-n-1/90'} backdrop-blur-sm`
       }`}
     >
-      <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
-      <img src={pythonIcon} alt={"python icon"} className={"w-10 h-10 object-cover"} />
+      <div className="flex h-20 items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
+      <img src={pythonIcon} alt={"python icon"} className={"w-10 h-10 object-cover absolute left-5 lg:left-7.5 xl:left-10"} />
 
         <nav
           className={`${
@@ -79,17 +79,24 @@ const Header = ({ navigation }) => {
           <HamburgerMenu isDarkMode={isDarkMode} />
         </nav>
 
-        <Button isDarkMode={isDarkMode} className="hidden lg:flex" onClick={toggleNavigation}>
-          {openNavigation ? 'Contents' : 'Modules'}
-        </Button>
-        
-        <Button
-          className="ml-auto lg:hidden"
-          px="px-3"
-          onClick={toggleNavigation}
-        >
-          <MenuSvg isDarkMode={isDarkMode} openNavigation={openNavigation} />
-        </Button>
+        <div className={'flex gap-4 items-center absolute right-5 lg:right-7.5 xl:right-10'}>
+          <div onClick={() => setIsDarkMode(!isDarkMode)}
+               className={`h-10 cursor-pointer w-10 bg-secondary flex items-center justify-center border-2 border-solid border-secondary rounded-2xl`}>
+            <FontAwesomeIcon className={''} icon={isDarkMode ? faMoon : faLightbulb}/>
+          </div>
+
+          <Button isDarkMode={isDarkMode} className="hidden lg:flex" onClick={toggleNavigation}>
+            {openNavigation ? 'Contents' : 'Modules'}
+          </Button>
+
+          <Button
+            className="ml-auto lg:hidden"
+            px="px-3"
+            onClick={toggleNavigation}
+          >
+            <MenuSvg isDarkMode={isDarkMode} openNavigation={openNavigation}/>
+          </Button>
+        </div>
       </div>
     </div>
   );
