@@ -1,9 +1,11 @@
 import {
-  computerMemoryVideo,
+  combineStatementsWithAnd,
+  combineStatementsWithOr,
+  computerMemoryVideo, elifElse,
   helloWorldConsole,
-  identityOperator,
+  identityOperator, indentation,
   mainPy, memoryThumb,
-  newTerminal,
+  newTerminal, oneLiner,
   openFolder,
   stackNHeap
 } from "../assets/index.js";
@@ -144,6 +146,51 @@ export const conditionalStatementsContent = [
   {
     title: "Conditionals"
   },
+  {
+    text: "Conditionals allow you to make decisions in your code, letting you execute certain actions only when specific conditions are true."
+  },
+  {
+    text: "An if statement contains a block of code which it executes if a certain logical condition is true."
+  },
+  {
+    text: "Python relies on indentation (spaces/tabs at the beginning of the line) to define which code belongs to this if statement. For example: "
+  },
+  {
+    images: [
+      {image: indentation, alt: ""}
+    ]
+  },
+  {
+    text: "The elif keyword (short for else if) says: “If the previous conditions were not true, then try this condition”. Whereas, the else keyword runs a block of code if none of the previous if or elif conditions are true. For example: "
+  },
+  {
+    images: [
+      {image: elifElse, alt: ""}
+    ]
+  },
+  {
+    text: "You can write short if statements on a single line for simplicity, like this:"
+  },
+  {
+    images: [
+      {image: oneLiner, alt: ""}
+    ]
+  },
+  {
+    text: "You can combine conditional statements using the and keyword or the or keyword. For example:"
+  },
+  {
+    images: [
+      {image: combineStatementsWithAnd, alt: ""},
+      {image: combineStatementsWithOr, alt: ""}
+    ]
+  },
+  {
+    text: "You can read more about conditionals here:"
+  },
+  {
+    link: "https://www.w3schools.com/python/python_conditions.asp"
+  }
 ];
 
 export const loopsContent = [

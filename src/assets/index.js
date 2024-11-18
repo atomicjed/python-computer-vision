@@ -99,6 +99,11 @@ import computerMemoryVideo from "./examples/module1/ComputerMemory.mp4";
 import identityOperator from "./examples/module1/identity-operator-eg.png";
 import stackNHeap from "./examples/module1/stacknheap.gif";
 import memoryThumb from "./examples/module1/memoryThumb.png";
+import combineStatementsWithAnd from "./examples/module1/and.png";
+import combineStatementsWithOr from "./examples/module1/or.png";
+import indentation from "./examples/module1/indentation.png";
+import oneLiner from "./examples/module1/one-liner.png";
+import elifElse from "./examples/module1/elif.png";
 
 import moduleTwoVideo from "./videos/ModuleTwo.mp4";
 
@@ -195,4 +200,9 @@ export {
   identityOperator,
   stackNHeap,
   memoryThumb,
+  combineStatementsWithOr,
+  combineStatementsWithAnd,
+  indentation,
+  elifElse,
+  oneLiner,
 };
