@@ -1,5 +1,7 @@
 import Text from "../../components/Text.jsx";
-import React from "react";
+import React, {useRef} from "react";
+import VideoPlayer from "../../components/VideoPlayer.jsx";
+import videojs from "video.js";
 
 export function displayTitle(title, isDarkMode) {
   return <Text data-aos="fade-right" component={"h2"} variant={"h2"} className={`pb-8 ${isDarkMode ? '' : 'text-black'}`}>{title}</Text>;
@@ -37,5 +39,36 @@ export function displayYoutubeVideo(url) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
     </div>
+  )
+}
+
+export function displayVideo(video, videoThumbnail) {
+  const playerRef = useRef(null);
+  
+  const videoJsOptions = {
+    autoplay: false,
+    controls: true,
+    responsive: true,
+    fluid: true,
+    poster: videoThumbnail ?? undefined,
+    sources: [{
+      src: video,
+      type: 'video/mp4'
+    }]
+  };
+
+  function handlePlayerReady(player) {
+    playerRef.current = player;
+
+    player.on('waiting', () => {
+      videojs.log('player is waiting');
+    });
+
+    player.on('dispose', () => {
+      videojs.log('player will dispose');
+    });
+  }
+  return (
+    <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
   )
 }

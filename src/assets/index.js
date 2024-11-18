@@ -95,6 +95,10 @@ import openFolder from "./examples/module1/VsCode.png";
 import mainPy from "./examples/module1/mainPy.png";
 import helloWorldConsole from "./examples/module1/console.png";
 import newTerminal from "./examples/module1/newTerminal.png";
+import computerMemoryVideo from "./examples/module1/ComputerMemory.mp4";
+import identityOperator from "./examples/module1/identity-operator-eg.png";
+import stackNHeap from "./examples/module1/stacknheap.gif";
+import memoryThumb from "./examples/module1/memoryThumb.png";
 
 import moduleTwoVideo from "./videos/ModuleTwo.mp4";
 
@@ -187,4 +191,8 @@ export {
   helloWorldConsole,
   mainPy,
   newTerminal,
+  computerMemoryVideo,
+  identityOperator,
+  stackNHeap,
+  memoryThumb,
 };

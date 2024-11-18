@@ -1,4 +1,12 @@
-import {helloWorldConsole, mainPy, newTerminal, openFolder} from "../assets/index.js";
+import {
+  computerMemoryVideo,
+  helloWorldConsole,
+  identityOperator,
+  mainPy, memoryThumb,
+  newTerminal,
+  openFolder,
+  stackNHeap
+} from "../assets/index.js";
 
 export const module1NavItems = [
   {
@@ -25,6 +33,11 @@ export const module1NavItems = [
     id: "4",
     title: "Functions",
     url: "#functions"
+  },
+  {
+    id: "5",
+    title: "Data Structures",
+    url: "#data-structures"
   }
 ];
 
@@ -150,3 +163,39 @@ export const dataStructuresContent = [
     title: "Data Structures"
   },
 ];
+
+export const memoryContent = [
+  {
+    title: "Computer Memory"
+  },
+  {
+    video: {source: computerMemoryVideo, thumbnail: memoryThumb}
+  },
+  {
+    text: "Well done, if you’ve got this far through, you already know a lot of the basics, but it’s also useful to understand what a computer does while it’s running a program."
+  },
+  {
+    text: "When a program runs, your machine uses two key areas of memory: the stack and the heap."
+  },
+  {
+    text: "The stack stores small, temporary data when it’s needed. It’s organised in a stack—new data is added to the top, and it’s removed as soon as it’s no longer needed. Simple data types like numbers and characters, known as value types, are stored here. The stack is fast and efficient to retrieve data, but the stack has limited size. "
+  },
+  {
+    text: "The heap, on the other hand, is larger and more flexible. It’s used for storing complex data like objects and arrays. However, it’s slower than the stack. To manage this, a reference to the data is stored on the stack, pointing to its actual location in the heap. This keeps the stack small and organised while allowing the program to indirectly access larger, more complex data. For this reason, complex data like objects and arrays are called reference types, as opposed to simple value types, which are stored directly on the stack."
+  },
+  {
+    images: [{image: stackNHeap, alt: ""}]
+  },
+  {
+    text: "Therefore, as we mentioned earlier, identity operators are used to compare objects—not by checking if they have the same value, but whether they are actually the same object with the same reference in memory."
+  },
+  {
+    images: [{image: identityOperator, alt: ""}]
+  },
+  {
+    text: "I know this is a lot to get your head around, but understanding this concept is useful because it’s commonly referenced when optimising programs, and similar principles are used when designing database structures. Also, if you encounter a StackOverflow error, it typically means your program has exceeded the stack’s memory limit, which often happens due to infinite recursion, which is just where a function endlessly calls itself, creating a loop that overflows the stack’s memory limit and causes your program to crash."
+  },
+  {
+    text: "Well done, if that made any sense to you, don’t worry too much if it doesn’t. If you’ve got a good understanding of the concepts we’ve covered in this module, we are ready to move on to the next one, where we’re gonna build our first motion detection algorithm. At the bottom of this page, drop me a message saying you’re ready to go and I will make the next module available for you. That being said you can always come back to this module if you need to revisit anything you need to."
+  },
+]
