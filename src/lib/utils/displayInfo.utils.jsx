@@ -19,12 +19,12 @@ export function displayImages(images) {
 
 export function displayList(list, isDarkMode) {
   return (
-    <ul>
+    <ul className={''}>
       {list.map((listItem, index) => (
         <React.Fragment key={index}>
           {listItem.bulletPoint && <li className={`${isDarkMode ? '' : 'text-black'}`} data-aos="fade">{listItem.bulletPoint}</li>}
           {listItem.images && displayImages(listItem.images)}
-          {listItem.link && <li><a className={`${isDarkMode ? 'text-secondary hover:text-primary' : 'text-primary hover:text-secondary'} transition duration-300 ease-in-out underline cursor-pointer`} href={listItem.link}>{listItem.link}</a></li>}
+          {listItem.link && <li className={'flex flex-wrap'}><a className={`${isDarkMode ? 'text-secondary hover:text-primary' : 'text-primary hover:text-secondary'} transition duration-300 ease-in-out underline cursor-pointer`} href={listItem.link.link}>{listItem.link.name}</a></li>}
         </React.Fragment>
       ))}
     </ul>

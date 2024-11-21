@@ -104,6 +104,23 @@ import combineStatementsWithOr from "./examples/module1/or.png";
 import indentation from "./examples/module1/indentation.png";
 import oneLiner from "./examples/module1/one-liner.png";
 import elifElse from "./examples/module1/elif.png";
+import returnExample from "./examples/module1/return.png";
+import breakContinue from "./examples/module1/break-continue.png";
+import dictExample from "./examples/module1/dictionary.png";
+import dictConsole from "./examples/module1/dictionary-console.png";
+import functionExample from "./examples/module1/function.png";
+import lenExample from "./examples/module1/len.png";
+import listIndex from "./examples/module1/list-index.png";
+import paramsExample from "./examples/module1/parameters.png";
+import paramsConsole from "./examples/module1/params-console.png";
+import setsExample from "./examples/module1/sets.png";
+import tupleExample from "./examples/module1/tuple.png";
+import whileExample from "./examples/module1/while-loop.png";
+import forLoopExample from "./examples/module1/for-loops.png";
+import dataStructuresTable from "./examples/module1/dataStructureTable.png";
+import variableQuiz from "./examples/module1/variableQuiz.png";
+import conditionalQuiz from "./examples/module1/conditionalQuiz.png";
+import loopQuiz from "./examples/module1/forLoopQuiz.png";
 
 import moduleTwoVideo from "./videos/ModuleTwo.mp4";
 
@@ -205,4 +222,21 @@ export {
   indentation,
   elifElse,
   oneLiner,
+  returnExample,
+  breakContinue,
+  dictExample,
+  dictConsole,
+  listIndex,
+  functionExample,
+  forLoopExample,
+  lenExample,
+  setsExample,
+  paramsExample,
+  paramsConsole,
+  whileExample,
+  tupleExample,
+  dataStructuresTable,
+  variableQuiz,
+  conditionalQuiz,
+  loopQuiz,
 };

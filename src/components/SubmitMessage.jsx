@@ -1,51 +1,29 @@
-import CustomDropzone from "./Dropzone.jsx";
 import Section from "./Section.jsx";
 import {displayTitle} from "../lib/utils/displayInfo.utils.jsx";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Button from "./Button.jsx";
 import {useModules} from "../lib/context/modules.context.jsx";
-import {db, storage} from "../firebaseSingleton.js";
-import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
-import {v4} from "uuid";
+import {db} from "../firebaseSingleton.js";
 import {doc, setDoc, deleteDoc} from "firebase/firestore";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFile} from "@fortawesome/free-solid-svg-icons";
+import {faEnvelope, faFile} from "@fortawesome/free-solid-svg-icons";
 
-export function SubmitWork({ moduleNumber, submittedWork, onUpdate }) {
-  const [workToSubmit, setWorkToSubmit] = useState(null);
+export function SubmitMessage({ moduleNumber, submittedWork, onUpdate }) {
   const [isUploading, setIsUploading] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState(null);
   const { isDarkMode } = useModules();
-  
-  function onFileDropped(droppedFiles) {
-    setWorkToSubmit((prevWorkToSubmit) => {
-      const currentWorkToSubmit = prevWorkToSubmit || [];
-      return [...currentWorkToSubmit, ...droppedFiles];
-    });
-  }
-  
+
   async function onSubmit() {
-    if (workToSubmit === null) return;
-    
+
     setIsUploading(true);
     try {
-      for (const file of workToSubmit) {
-        const uniqueFileName = `${file.name + v4()}`;
-        const fileRef = ref(storage, `Module${moduleNumber}/${uniqueFileName}`);
-        
-        await uploadBytes(fileRef, file);
-
-        const downloadURL = await getDownloadURL(fileRef);
-        
-        const workSubmitRef = doc(db, `Module${moduleNumber}`, uniqueFileName);
-        await setDoc(workSubmitRef, {
-          fileName: file.name,
-          downloadURL: downloadURL,
-          message: message,
-          submittedAt: new Date().toISOString(),
-        });
-      }
+      const date = new Date().toISOString();
+      const messageSubmitRef = doc(db, `Module${moduleNumber}`, `Message sent at: ${date}`);
+      await setDoc(messageSubmitRef, {
+        message: message,
+        submittedAt: date,
+      });
     } catch(e) {
       console.error('Error submitting work:', e);
       setError('Oops there was an error submitting your work. Drop me an email and I will get this sorted for you!');
@@ -53,10 +31,9 @@ export function SubmitWork({ moduleNumber, submittedWork, onUpdate }) {
       onUpdate();
       setIsUploading(false);
       setMessage('');
-      setWorkToSubmit(null);
     }
   }
-  
+
   async function deleteDocument(documentId) {
     try {
       // Reference to the specific Firestore document
@@ -70,25 +47,16 @@ export function SubmitWork({ moduleNumber, submittedWork, onUpdate }) {
       onUpdate();
     }
   }
-  
+
   return (
     <Section crosses>
       <div className={`container relative z-2 flex flex-col px-6 sm:px-12 md:px-24 lg:px-32 ${isDarkMode ? '' : 'text-black'}`}>
-        {displayTitle("Submit your Work", isDarkMode)}
-        <p data-aos="fade-right" className={"py-6"}>Please drag and drop your work here in any format you prefer (video, PDF, photo, etc.). Once I’ve reviewed it, I’ll release the next module for you.</p>
-        <p data-aos={"fade-right"} className={"pb-12"}>Along with your submission, feel free to leave a quick message sharing how you found the module. If you have any specific ideas or projects you’d like to work on in future modules, or any feedback on how I could make the course more engaging, I'd love to hear it!</p>
+        {displayTitle("Ready to Move on?", isDarkMode)}
+        <p data-aos={"fade-right"} className={"pb-12"}>I hope you're feeling accomplished, that's a lot of content you just went through! It will set us up beautifully to crack on with the course and build some really cool projects. Drop a message here to say you're ready to move on and I will make the next module available to you, where we're going to build our first motion detection algorithm!</p>
 
         <div className={"flex flex-col items-center gap-6"}>
-          <CustomDropzone isUploading={isUploading} onChange={(droppedFile) => {onFileDropped(droppedFile)}} />
-          {workToSubmit !== null && (
-            <div className={'flex justify-start w-full lg:w-[80%] text-gray-600 gap-4'}>
-              {workToSubmit.map((file, index) => (
-                <p key={index}>{file.name}</p>
-              ))}
-            </div>
-          )}
-          <textarea 
-            onChange={(event) => setMessage(event.target.value)} 
+          <textarea
+            onChange={(event) => setMessage(event.target.value)}
             value={message}
             disabled={isUploading}
             className={`border border-white rounded-2xl ${!isUploading ? 'text-white' : 'text-gray-700'} p-4 w-full lg:w-[80%] min-h-32`}
@@ -105,19 +73,16 @@ export function SubmitWork({ moduleNumber, submittedWork, onUpdate }) {
                 <div className={'flex items-center gap-4'}>
                   <div
                     className={'border border-secondary border-dashed h-14 w-14  flex items-center justify-center rounded-2xl'}>
-                    <FontAwesomeIcon className={'text-primary text-2xl'} icon={faFile}/>
+                    <FontAwesomeIcon className={'text-primary text-2xl'} icon={faEnvelope}/>
                   </div>
                   <div key={index} className={'flex flex-col w-full items-start'}>
                     <div className={'w-full flex justify-between'}>
-                      <a
-                        className={`${isDarkMode ? 'text-primary hover:text-secondary' : 'text-primary hover:text-secondary'} transition duration-300 ease-in-out underline cursor-pointer`}
-                        href={file.downloadURL}>{file.fileName}</a>
+                      <div>{file.message}</div>
                       <div
                         className={'text-red-500 underline cursor-pointer hover:text-red-700 transition duration-300 ease-in-out'}
                         onClick={() => deleteDocument(file.id)}>Delete
                       </div>
                     </div>
-                    <div>{file.message}</div>
                   </div>
                 </div>
               ))}

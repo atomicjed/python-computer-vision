@@ -11,6 +11,7 @@ import {
   displayYoutubeVideo
 } from "../lib/utils/displayInfo.utils.jsx";
 import {useModules} from "../lib/context/modules.context.jsx";
+import Quiz from "./Quiz.jsx";
 
 export function InfoSection({ sectionId, content, isFirst = false }) {
   const { isDarkMode } = useModules();
@@ -42,10 +43,13 @@ export function InfoSection({ sectionId, content, isFirst = false }) {
       return displayYoutubeVideo(contentItem.ytVideoUrl);
     }
     if (contentItem.link) {
-      return <a className={`${isDarkMode ? 'text-secondary hover:text-primary' : 'text-primary hover:text-secondary'} transition duration-300 ease-in-out underline cursor-pointer`} href={contentItem.link}>{contentItem.link}</a>
+      return <a className={`${isDarkMode ? 'text-secondary hover:text-primary' : 'text-primary hover:text-secondary'} transition duration-300 ease-in-out underline cursor-pointer`} href={contentItem.link.link}>{contentItem.link.name}</a>
     }
     if (contentItem.video) {
       return displayVideo(contentItem.video.source, contentItem.video.thumbnail);
+    }
+    if (contentItem.quiz) {
+      return <Quiz explanation={contentItem.quiz.explanation} options={contentItem.quiz.options} question={contentItem.quiz.question} />
     }
 
     console.error("There was an error in the content json");
