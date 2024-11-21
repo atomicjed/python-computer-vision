@@ -10,8 +10,33 @@ import {
 } from "../constants/moduleTwoScript.constants.js";
 import {SubmitWork} from "../components/SubmitWork.jsx";
 import {module2Thumb, moduleTwoVideo} from "../assets/index.js";
+import {useEffect, useState} from "react";
+import {collection, getDocs} from "firebase/firestore";
+import {db} from "../firebaseSingleton.js";
 
 export default function ModuleTwo({ moduleNumber }) {
+  const [submittedWork, setSubmittedWork] = useState([]);
+
+  useEffect(() => {
+    void fetchSubmittedWork();
+  }, []);
+
+  async function fetchSubmittedWork() {
+    try {
+      const submittedWorkCollectionRef = collection(db, `Module${moduleNumber}`);
+      const submittedWorkDocs = await getDocs(submittedWorkCollectionRef);
+
+      const data = submittedWorkDocs.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      console.log('Submitted Work:', data);
+      setSubmittedWork(data);
+    } catch(e) {
+      console.error('Error fetching work:', e);
+    }
+  }
   return (
     <>
       <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
@@ -22,7 +47,7 @@ export default function ModuleTwo({ moduleNumber }) {
         <InfoSection sectionId={"computer-vision"} content={computerVisionContent} />
         <InfoSection sectionId={"walkthrough"} content={walkThrough} />
         <InfoSection sectionId={"results"} content={results} />
-        <SubmitWork moduleNumber={moduleNumber} />
+        <SubmitWork moduleNumber={moduleNumber} onUpdate={fetchSubmittedWork} submittedWork={submittedWork} />
       </div>
 
       <ButtonGradient/>
